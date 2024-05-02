@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useTheme } from "next-themes"
+import * as React from "react";
+import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button"
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
+import { Button } from "@/components/ui/button";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
-export function SearchButton() {
-  const { setTheme } = useTheme()
+const SearchButton = ({ onClick } : {onClick:any}) => {
 
   return (
-        <Button variant="outline" size="icon">
-          <MagnifyingGlassIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-  )
+    <div className="relative">
+      <Button variant="outline" size="icon" onClick={onClick}>
+        <MagnifyingGlassIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100" />
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+    </div>
+  );
 }
+
+export default SearchButton;
